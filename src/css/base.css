@@ -1,0 +1,17 @@
+body {
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: var(--leading-loose);
+  color: #111;
+  background: #fafafa;
+  margin: 0;
+}
+
+h1, h2, h3 {
+  line-height: var(--leading-normal);
+  margin-top: var(--space-7);
+}
+
+p {
+  margin-top: var(--space-4);
+}

@@ -1,0 +1,29 @@
+:root {
+  /* Spacing */
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Typography */
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 22px;
+  --text-2xl: 28px;
+  --text-3xl: 36px;
+
+  --leading-normal: 1.6;
+  --leading-loose: 1.8;
+
+  /* Layout */
+  --max-width: 720px;
+  --page-padding: 24px;
+}
