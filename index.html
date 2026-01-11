@@ -7,28 +7,74 @@
   <link rel="stylesheet" href="/src/css/tokens.css">
   <link rel="stylesheet" href="/src/css/base.css">
   <link rel="stylesheet" href="/src/css/layout.css">
+  <link rel="stylesheet" href="/src/css/panels.css">
 </head>
 <body>
-  <main class="container">
-    <h1>Chieflabz</h1>
+  <div class="layout">
 
-    <p>
-      A small research-driven lab exploring products, systems,
-      and ideas shaping digital work and Web3.
-    </p>
+    <!-- LEFT PANEL -->
+    <aside class="left-panel">
+      <a href="/" class="brand">
+      <img src="/public/logo.png" alt="Chieflabz logo" />
+      <span>Chieflabz</span>
+      </a>
 
-    <h2>What We Do</h2>
-    <ul>
-      <li>Deep product exploration</li>
-      <li>Practical systems and frameworks</li>
-      <li>Thoughtful product experimentation</li>
-    </ul>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/insights.html">Insights</a>
+        <a href="/products.html">Products</a>
+        <a href="/about.html">About</a>
+        <a href="/contact.html">Contact</a>
+      </nav>
+    </aside>
 
-    <h2>Current Focus</h2>
-    <p>
-      Understanding how people discover and trust digital tools,
-      starting with Web3 and health access in emerging markets.
-    </p>
-  </main>
+    <!-- MAIN CONTENT -->
+    <main class="main">
+      <div class="container">
+        <h1>Chieflabz</h1>
+
+        <p>
+          A small research-driven lab exploring products, systems,
+          and ideas shaping digital work and Web3.
+        </p>
+
+        <h2>Current Focus</h2>
+        <p>
+          Understanding how people discover and trust digital tools,
+          starting with Web3 and health access in emerging markets.
+        </p>
+      </div>
+    </main>
+
+    <!-- RIGHT PANEL -->
+    <aside class="right-panel">
+      <div class="panel-title">Resources</div>
+
+      <details>
+        <summary>Top Lists</summary>
+        <div class="details-links">
+          <a href="#">Top 100 Web3 Tools</a>
+          <a href="#">Top TON Projects</a>
+        </div>
+      </details>
+
+      <details>
+        <summary>Influencers</summary>
+        <div class="details-links">
+          <a href="#">Top TON Influencers</a>
+          <a href="#">Crypto Analysts</a>
+        </div>
+      </details>
+
+      <details>
+        <summary>Directories</summary>
+        <div class="details-links">
+          <a href="#">Web3 Infrastructure</a>
+          <a href="#">DeFi Tools</a>
+        </div>
+      </details>
+    </aside>
+
+  </div>
 </body>
 </html>

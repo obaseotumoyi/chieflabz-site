@@ -1,0 +1,107 @@
+.layout {
+  min-height: 100vh;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--space-6);
+}
+
+.brand img {
+  width: 28px;
+  height: auto;
+  display: block;
+}
+
+.brand span {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.brand {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+/* LEFT PANEL */
+.left-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  padding: var(--space-6);
+  border-right: 1px solid #e5e5e5;
+  background: #fafafa;
+}
+
+/* RIGHT PANEL */
+.right-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 240px;
+  height: 100vh;
+  padding: var(--space-6);
+  border-left: 1px solid #e5e5e5;
+  background: #fafafa;
+}
+
+/* MAIN CONTENT */
+.main {
+  margin-left: 220px;
+  margin-right: 240px;
+  min-height: 100vh;
+}
+
+.panel-title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-4);
+}
+
+.nav a {
+  display: block;
+  margin-bottom: var(--space-3);
+  text-decoration: none;
+  color: #111;
+  font-size: var(--text-sm);
+}
+
+/* RIGHT PANEL DROPDOWNS */
+details {
+  margin-bottom: var(--space-4);
+}
+
+summary {
+  cursor: pointer;
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.details-links a {
+  display: block;
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  text-decoration: none;
+  color: #444;
+}
+
+/* MOBILE */
+@media (max-width: 1024px) {
+  .left-panel,
+  .right-panel {
+    display: none;
+  }
+
+  .main {
+    margin: 0;
+  }
+}
