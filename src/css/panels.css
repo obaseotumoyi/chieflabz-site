@@ -223,3 +223,63 @@ summary {
     padding-right: var(--space-4);
   }
 }
+
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: var(--space-6);
+}
+
+.blacklist-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+
+.blacklist-table th,
+.blacklist-table td {
+  text-align: left;
+  padding: 12px 10px;
+  border-bottom: 1px solid #e5e5e5;
+  white-space: nowrap;
+}
+
+.blacklist-table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+.blacklist-table a {
+  color: inherit;
+  text-decoration: underline;
+}
+
+.blacklist-table a:hover {
+  opacity: 0.8;
+}
+
+/* STATUS */
+.status.reported {
+  color: #b45309;
+  font-weight: 500;
+}
+
+/* DISCLAIMER TRAY */
+.disclaimer {
+  margin-top: var(--space-4);
+  font-size: var(--text-sm);
+}
+
+.disclaimer summary {
+  cursor: pointer;
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+}
+
+.disclaimer p {
+  color: #555;
+  max-width: 640px;
+}
