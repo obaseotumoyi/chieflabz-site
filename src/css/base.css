@@ -19,3 +19,10 @@ p {
 html, body {
   overflow-x: hidden;
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #0f0f0f;
+    color: #eaeaea;
+  }
+}

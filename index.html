@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Chieflabz</title>
 
   <link rel="stylesheet" href="/src/css/tokens.css">
@@ -9,22 +10,29 @@
   <link rel="stylesheet" href="/src/css/layout.css">
   <link rel="stylesheet" href="/src/css/panels.css">
 </head>
+
 <body>
+
+  <!-- MOBILE HEADER (ONE ONLY) -->
+  <header class="mobile-header">
+    <a href="/" class="mobile-brand">
+      <img src="/public/logo.png" alt="Chieflabz logo" />
+      <span>Chieflabz</span>
+    </a>
+    <button class="menu-toggle" aria-label="Open menu">☰</button>
+  </header>
+
   <div class="layout">
 
     <!-- LEFT PANEL -->
     <aside class="left-panel">
       <a href="/" class="brand">
-      <img src="/public/logo.png" alt="Chieflabz logo" />
-      <span>Chieflabz</span>
+        <img src="/public/logo.png" alt="Chieflabz logo" />
+        <span>Chieflabz</span>
       </a>
 
       <nav class="nav">
         <a href="/">Home</a>
-        <!-- <a href="/insights.html">Insights</a> -->
-        <!-- <a href="/products.html">Products</a> -->
-        <!-- <a href="/about.html">About</a> -->
-        <!-- <a href="/contact.html">Contact</a> -->
       </nav>
     </aside>
 
@@ -32,48 +40,45 @@
     <main class="main">
       <div class="container">
         <h1>Chieflabz</h1>
-
         <p>
           A small research-driven lab exploring products, systems,
           and ideas shaping digital work and finance.
         </p>
 
         <h2>Current Focus</h2>
-        <p>
-          Loading...
-        </p>
+        <p>Loading...</p>
       </div>
+
+      <section class="mobile-resources">
+        <h3>Resources</h3>
+
+        <details>
+          <summary>Top Lists</summary>
+          <a href="#">Top 100 Web3 Tools</a>
+          <a href="#">Top TON Projects</a>
+        </details>
+
+        <details>
+          <summary>Influencers</summary>
+          <a href="#">Top TON Influencers</a>
+        </details>
+
+        <details>
+          <summary>Directories</summary>
+          <a href="#">Web3 Infrastructure</a>
+          <a href="#">DeFi Tools</a>
+        </details>
+      </section>
     </main>
 
     <!-- RIGHT PANEL -->
     <aside class="right-panel">
       <div class="panel-title">Resources</div>
-
-      <!-- <details>
-        <summary>Top Lists</summary>
-        <div class="details-links">
-          <a href="#">Top 100 Web3 Tools</a>
-          <a href="#">Top TON Projects</a>
-        </div>
-      </details> -->
-
-      <!-- <details>
-        <summary>Influencers</summary>
-        <div class="details-links">
-          <a href="#">Top TON Influencers</a>
-          <a href="#">Crypto Analysts</a>
-        </div>
-      </details> -->
-
-      <!-- <details>
-        <summary>Directories</summary>
-        <div class="details-links">
-          <a href="#">Web3 Infrastructure</a>
-          <a href="#">DeFi Tools</a>
-        </div>
-      </details> -->
     </aside>
 
   </div>
+
+  <!-- SCRIPT AT BOTTOM -->
+  <script src="/src/js/mobile-nav.js"></script>
 </body>
 </html>
