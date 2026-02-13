@@ -20,25 +20,29 @@
 
 *{box-sizing:border-box;}
 
-html,body{
+html{
+  height:100%;
+}
+
+body{
   margin:0;
   padding:0;
+  min-height:100dvh;
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
   background:radial-gradient(circle at center,var(--bg1),var(--bg2));
-  overflow:hidden;
   position:relative;
   font-family:'Inter',sans-serif;
+  overflow-x:hidden;
 }
 
 /* Background Glow */
 body::before{
   content:"";
   position:absolute;
-  width:120%;
-  height:120%;
+  inset:0;
   background:radial-gradient(circle,rgba(255,255,255,0.4),transparent 60%);
   animation:glow 6s ease-in-out infinite alternate;
   z-index:0;
@@ -65,13 +69,22 @@ body::before{
   100%{transform:translateY(100vh) rotate(360deg);}
 }
 
+/* Scene wrapper ensures centering stability */
+.wrapper{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  z-index:2;
+}
+
 /* Scene */
 .scene{
   perspective:1500px;
   width:560px;
   height:380px;
   position:relative;
-  z-index:2;
 }
 
 /* Envelope */
@@ -92,8 +105,7 @@ body::before{
 
 .front,.back{
   position:absolute;
-  width:100%;
-  height:100%;
+  inset:0;
   backface-visibility:hidden;
   display:flex;
   flex-direction:column;
@@ -112,7 +124,6 @@ body::before{
 .back{
   transform:rotateY(180deg);
   text-align:center;
-  font-family:'Inter',sans-serif;
 }
 
 .flap{
@@ -138,7 +149,6 @@ input{
   border:1px solid #ccc;
   font-size:16px;
   width:80%;
-  font-family:'Inter',sans-serif;
 }
 
 input:focus{
@@ -158,18 +168,21 @@ input:focus{
   opacity:1;
 }
 
-/* Letter */
+/* Letter – fixed centering for Safari */
 .letter{
-  position:absolute;
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, 100%) scale(0.6);
   width:560px;
-  height:680px;
+  max-width:94vw;
+  height:85vh;
   background:var(--paper);
   border-radius:16px;
-  padding:50px;
+  padding:40px;
   box-shadow:0 40px 80px var(--shadow);
-  transform:translateY(240px) scale(0.6);
   opacity:0;
-  transition:all 800ms ease;
+  transition:all 700ms ease;
   overflow-y:auto;
   z-index:3;
   display:flex;
@@ -178,14 +191,14 @@ input:focus{
 }
 
 .letter.show{
-  transform:translateY(-20px) scale(1);
+  transform:translate(-50%, -50%) scale(1);
   opacity:1;
 }
 
 .glow-name{
   font-family:'Cormorant Garamond',serif;
-  font-size:46px;
-  margin-bottom:30px;
+  font-size:42px;
+  margin-bottom:25px;
   animation:nameGlow 2.5s ease-in-out infinite alternate;
 }
 
@@ -195,49 +208,40 @@ input:focus{
 }
 
 .letter-content{
-  max-width:480px;
   font-family:'Cormorant Garamond',serif;
-  font-size:21px;
+  font-size:20px;
   line-height:1.9;
   color:var(--text);
+  max-width:480px;
 }
 
 .close-btn{
-  margin-top:35px;
+  margin-top:30px;
   padding:12px 20px;
   border:none;
   background:var(--accent);
   color:white;
   border-radius:8px;
   cursor:pointer;
-  font-family:'Inter',sans-serif;
 }
 
-/* Mobile */
+/* Mobile adjustments */
 @media(max-width:768px){
-  html,body{overflow:auto;}
-
   .scene{
     width:92%;
-    height:260px;
+    height:240px;
   }
 
   .front{
-    font-size:28px;
-  }
-
-  .letter{
-    width:94%;
-    height:85vh;
-    padding:30px;
-  }
-
-  .letter-content{
-    font-size:19px;
+    font-size:26px;
   }
 
   .glow-name{
-    font-size:34px;
+    font-size:32px;
+  }
+
+  .letter-content{
+    font-size:18px;
   }
 }
 </style>
@@ -257,7 +261,8 @@ for(let i=0;i<petalCount;i++){
 }
 </script>
 
-<div class="scene">
+<div class="wrapper">
+  <div class="scene">
   <div class="envelope" id="envelope">
     <div class="flap"></div>
 
@@ -354,6 +359,9 @@ function closeLetter(){
   error.classList.remove("show");
 }
 </script>
+
+  </div>
+</div>
 
 </body>
 </html>
