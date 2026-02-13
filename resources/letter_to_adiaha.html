@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>A Letter For Ikpemeawan</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Cormorant+Garamond:wght@400;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg1:#fdf6f2;
+  --bg2:#f5d9d9;
+  --envelope:#f3e0d4;
+  --paper:#fffaf5;
+  --accent:#b85c7a;
+  --shadow:rgba(0,0,0,0.25);
+  --text:#2f2a27;
+}
+
+*{box-sizing:border-box;}
+
+html,body{
+  margin:0;
+  padding:0;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle at center,var(--bg1),var(--bg2));
+  overflow:hidden;
+  position:relative;
+  font-family:'Inter',sans-serif;
+}
+
+/* Background Glow */
+body::before{
+  content:"";
+  position:absolute;
+  width:120%;
+  height:120%;
+  background:radial-gradient(circle,rgba(255,255,255,0.4),transparent 60%);
+  animation:glow 6s ease-in-out infinite alternate;
+  z-index:0;
+}
+
+@keyframes glow{
+  from{transform:scale(1);opacity:0.4;}
+  to{transform:scale(1.1);opacity:0.6;}
+}
+
+/* Petals */
+.petal{
+  position:absolute;
+  width:10px;
+  height:10px;
+  background:rgba(255,182,193,0.6);
+  border-radius:50%;
+  animation:fall linear infinite;
+  z-index:0;
+}
+
+@keyframes fall{
+  0%{transform:translateY(-100vh) rotate(0deg);}
+  100%{transform:translateY(100vh) rotate(360deg);}
+}
+
+/* Scene */
+.scene{
+  perspective:1500px;
+  width:560px;
+  height:380px;
+  position:relative;
+  z-index:2;
+}
+
+/* Envelope */
+.envelope{
+  width:100%;
+  height:100%;
+  background:var(--envelope);
+  border-radius:16px;
+  box-shadow:0 30px 60px var(--shadow);
+  transform-style:preserve-3d;
+  transition:transform 700ms ease;
+  position:relative;
+}
+
+.envelope.flip{
+  transform:rotateY(180deg);
+}
+
+.front,.back{
+  position:absolute;
+  width:100%;
+  height:100%;
+  backface-visibility:hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.front{
+  font-family:'Dancing Script',cursive;
+  font-size:36px;
+  color:var(--text);
+  cursor:pointer;
+}
+
+.back{
+  transform:rotateY(180deg);
+  text-align:center;
+  font-family:'Inter',sans-serif;
+}
+
+.flap{
+  position:absolute;
+  top:0;
+  width:100%;
+  height:50%;
+  background:#e8cfc0;
+  clip-path:polygon(0 0,50% 100%,100% 0);
+  transform-origin:top;
+  transition:transform 700ms ease;
+}
+
+.envelope.open .flap{
+  transform:rotateX(-180deg);
+}
+
+/* Input */
+input{
+  margin-top:15px;
+  padding:12px;
+  border-radius:8px;
+  border:1px solid #ccc;
+  font-size:16px;
+  width:80%;
+  font-family:'Inter',sans-serif;
+}
+
+input:focus{
+  outline:none;
+  border-color:var(--accent);
+}
+
+.error{
+  margin-top:10px;
+  font-size:14px;
+  color:#c0392b;
+  opacity:0;
+  transition:opacity 300ms ease;
+}
+
+.error.show{
+  opacity:1;
+}
+
+/* Letter */
+.letter{
+  position:absolute;
+  width:560px;
+  height:680px;
+  background:var(--paper);
+  border-radius:16px;
+  padding:50px;
+  box-shadow:0 40px 80px var(--shadow);
+  transform:translateY(240px) scale(0.6);
+  opacity:0;
+  transition:all 800ms ease;
+  overflow-y:auto;
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+.letter.show{
+  transform:translateY(-20px) scale(1);
+  opacity:1;
+}
+
+.glow-name{
+  font-family:'Cormorant Garamond',serif;
+  font-size:46px;
+  margin-bottom:30px;
+  animation:nameGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes nameGlow{
+  from{text-shadow:0 0 5px rgba(255,255,255,0.5);}
+  to{text-shadow:0 0 25px rgba(255,105,180,0.6);}
+}
+
+.letter-content{
+  max-width:480px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:21px;
+  line-height:1.9;
+  color:var(--text);
+}
+
+.close-btn{
+  margin-top:35px;
+  padding:12px 20px;
+  border:none;
+  background:var(--accent);
+  color:white;
+  border-radius:8px;
+  cursor:pointer;
+  font-family:'Inter',sans-serif;
+}
+
+/* Mobile */
+@media(max-width:768px){
+  html,body{overflow:auto;}
+
+  .scene{
+    width:92%;
+    height:260px;
+  }
+
+  .front{
+    font-size:28px;
+  }
+
+  .letter{
+    width:94%;
+    height:85vh;
+    padding:30px;
+  }
+
+  .letter-content{
+    font-size:19px;
+  }
+
+  .glow-name{
+    font-size:34px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<script>
+const petalCount = window.innerWidth < 768 ? 8 : 18;
+for(let i=0;i<petalCount;i++){
+  const p=document.createElement("div");
+  p.className="petal";
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=6+Math.random()*6+"s";
+  p.style.opacity=Math.random();
+  document.body.appendChild(p);
+}
+</script>
+
+<div class="scene">
+  <div class="envelope" id="envelope">
+    <div class="flap"></div>
+
+    <div class="front" id="front">
+      <div>To: Ikpemeawan</div>
+      <div style="margin-top:15px;">From: Obase-Otumoyi</div>
+    </div>
+
+    <div class="back">
+      <div style="font-weight:500;">Hint: Opposite of Itiat</div>
+      <input type="password" id="passcode" placeholder="Enter passcode">
+      <div class="error" id="error">Wrong password. Try again.</div>
+    </div>
+  </div>
+</div>
+
+<div class="letter" id="letter">
+  <div class="glow-name">Ikpemeawan</div>
+
+  <div class="letter-content">
+    
+    Dearest Ikpemeawan,
+    <br><br>
+    We have built a friendship that is solid over the years, one that is trustworthy, respectful and dependable. I love, and appreciate you, and I thank you for your friendship.
+    <br><br>
+    I know our journey hasn't always been straight, with some kwagha at some points 😁, but what is life without some challenges? The best things often do take time to marinate and grow.
+    <br><br>
+    You are so kind-hearted, caring, gracious and loving, and you do this with a smile even when it feels like the world around is not deserving.
+    <br><br>
+    You are beautiful
+    <br>
+    You are Intelligent
+    <br>
+    You are lovely
+    <br>
+    You are sweet (Ininghe)
+    <br>
+    You are kind
+    <br>
+    You are Ikpa, solid, strong, loyal and resilient.
+    <br><br>
+
+    We've talked about Valentine’s Day unofficially, so I want to make this official and formally ask you.
+    <br><br>
+    ​Ikpemeawan, will you officially be my Valentine?
+    <br><br>
+
+    ​With all my affection,
+    <br>
+    Ekor Obase-otumoyi Ibor
+    <br><br><br>
+
+
+  <button class="close-btn" onclick="closeLetter()">Put Back Letter</button>
+</div>
+
+<script>
+const envelope=document.getElementById("envelope");
+const front=document.getElementById("front");
+const passcodeInput=document.getElementById("passcode");
+const letter=document.getElementById("letter");
+const error=document.getElementById("error");
+
+let flipped=false;
+
+front.addEventListener("click",()=>{
+  if(!flipped){
+    envelope.classList.add("flip");
+    flipped=true;
+    setTimeout(()=>passcodeInput.focus(),300);
+  }
+});
+
+function checkPassword(){
+  if(passcodeInput.value.toLowerCase()==="ikpa"){
+    error.classList.remove("show");
+    envelope.classList.add("open");
+    letter.classList.add("show");
+  }else{
+    error.classList.add("show");
+  }
+}
+
+passcodeInput.addEventListener("keypress",(e)=>{
+  if(e.key==="Enter"){
+    checkPassword();
+  }
+});
+
+function closeLetter(){
+  letter.classList.remove("show");
+  envelope.classList.remove("open");
+  passcodeInput.value="";
+  error.classList.remove("show");
+}
+</script>
+
+</body>
+</html>
