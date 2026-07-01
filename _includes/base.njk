@@ -3,7 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Chieflabz</title>
+  <title>{{ title }} | {{ site.title }}</title>
+  <meta name="description" content="{{ description or site.description }}" />
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+  <meta property="og:type" content="{{ ogType or 'website' }}" />
+  <meta property="og:site_name" content="{{ site.title }}" />
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:description" content="{{ description or site.description }}" />
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+  <meta property="og:image" content="{{ site.url }}{{ ogImage or site.ogImage }}" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ title }}" />
+  <meta name="twitter:description" content="{{ description or site.description }}" />
+  <meta name="twitter:image" content="{{ site.url }}{{ ogImage or site.ogImage }}" />
 
   <link rel="stylesheet" href="/src/css/tokens.css">
   <link rel="stylesheet" href="/src/css/base.css">
@@ -40,14 +54,7 @@
     <!-- MAIN CONTENT -->
     <main class="main">
       <div class="container">
-        <h1>Chieflabz</h1>
-        <p>
-          A small research-driven lab exploring products, systems,
-          and ideas shaping digital work and finance.
-        </p>
-
-        <h2>Current Focus</h2>
-        <p>Loading...</p>
+        {{ content | safe }}
       </div>
 
       <section class="mobile-resources">
@@ -59,23 +66,6 @@
           Telegram Gifts Blacklist
         </a>
         </details>
-      
-        <!-- <details>
-          <summary>Top Lists</summary>
-          <a href="#">Top 100 Web3 Tools</a>
-          <a href="#">Top TON Projects</a>
-        </details> -->
-
-        <!-- <details>
-          <summary>Influencers</summary>
-          <a href="#">Top TON Influencers</a>
-        </details> -->
-
-        <!-- <details>
-          <summary>Directories</summary>
-          <a href="#">Web3 Infrastructure</a>
-          <a href="#">DeFi Tools</a>
-        </details> -->
       </section>
     </main>
 
@@ -91,7 +81,7 @@
         </a>
       </div>
       </details>
-      
+
     </aside>
 
   </div>

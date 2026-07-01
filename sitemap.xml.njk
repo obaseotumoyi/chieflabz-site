@@ -1,0 +1,22 @@
+---
+permalink: "/sitemap.xml"
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ site.url }}/</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}/blog/</loc>
+  </url>
+{% for post in collections.posts %}
+  <url>
+    <loc>{{ site.url }}{{ post.url }}</loc>
+    <lastmod>{{ (post.data.updated or post.data.date) | isoDate }}</lastmod>
+  </url>
+{% endfor %}
+  <url>
+    <loc>{{ site.url }}/resources/telegram-gifts-blacklist.html</loc>
+  </url>
+</urlset>
