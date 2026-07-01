@@ -300,15 +300,6 @@ summary {
   color: #666;
 }
 
-.tldr {
-  margin-top: var(--space-4);
-  padding: var(--space-4);
-  background: #f0f0f0;
-  border-left: 3px solid #111;
-  font-size: var(--text-sm);
-  max-width: 640px;
-}
-
 .post-list {
   list-style: none;
   padding: 0;
@@ -338,11 +329,6 @@ summary {
 }
 
 @media (prefers-color-scheme: dark) {
-  .tldr {
-    background: #1a1a1a;
-    border-left-color: #eaeaea;
-  }
-
   .post-list li {
     border-color: #222;
   }
