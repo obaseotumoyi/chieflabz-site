@@ -22,7 +22,7 @@ ogType: article
       "url": "{{ site.url }}{{ site.ogImage }}"
     }
   },
-  "image": "{{ site.url }}{{ ogImage or site.ogImage }}",
+  {% if ogImage %}"image": "{{ site.url }}{{ ogImage }}",{% endif %}
   "mainEntityOfPage": {
     "@type": "WebPage",
     "@id": "{{ site.url }}{{ page.url }}"
