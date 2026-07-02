@@ -4,6 +4,7 @@ title: "England 2-1 DR Congo: More Than Ninety Minutes"
 description: "England needed a late Harry Kane brace to survive DR Congo's fearless World Cup return. What that scoreline reveals about colonial hierarchy, bias research, and how Africans can build a different story."
 date: 2026-07-01
 author: Chief
+ogImage: /public/blog/more-than-ninety-minutes.png
 summary: "England scraped past a fearless DR Congo 2-1, needing a late Harry Kane brace to survive a team's first World Cup knockout appearance in fifty two years. Drawing on Fanon, bias research, and the psychology of compounding advantage, this piece argues that a Nigerian boy defaulting to England over DR Congo is rehearsing a much older, colonially inherited hierarchy — and that the fix is building a visible, repeated record of African success, on the pitch and off it."
 tags: posts
 ---
